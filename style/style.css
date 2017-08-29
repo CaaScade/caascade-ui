@@ -137,6 +137,12 @@
 	color: #003d99;
 }
 
+.tab-bar li.active {
+	background-color: white;
+	border-right: 1px solid;
+	color: #003d99;
+}
+
 .app-catalog {
 	background-color: white;
 	margin: 0;

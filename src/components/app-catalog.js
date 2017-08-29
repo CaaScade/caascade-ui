@@ -1,6 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
-import AppCard from './app-card';
+import {
+  LoadBalancersTab,
+  CachesTab,
+  MessageQueuesTab,
+  DatabasesTab,
+  OthersTab
+} from './tabs';
 
 class AppCatalog extends Component {
   static propTypes = {
@@ -8,13 +14,18 @@ class AppCatalog extends Component {
   }
 
 	render() {
-		return(
-			<div className="app-catalog">
-        <AppCard name='PostgreSQL' logoSrc='resources/postgres.png' />
-        <AppCard name='MySQL' logoSrc='resources/mysql.png' />
-        <AppCard name='MongoDB' logoSrc='resources/mongodb.png' />
-			</div>
-		);
+    switch(this.props.activeTab) {
+      case ('load-balancers'):
+        return <LoadBalancersTab />;
+      case ('caches'):
+        return <CachesTab />;
+      case ('message-queues'):
+        return <MessageQueuesTab />;
+      case ('databases'):
+        return <DatabasesTab />;
+      default:
+        return <OthersTab />
+    }
 	}
 }
 

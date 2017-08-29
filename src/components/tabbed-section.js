@@ -15,7 +15,7 @@ class TabbedSection extends Component {
 	render() {
 		return(
 				<div className="tabbed-section">
-					<TabBar onChange={tab => this.props.changeActiveTab(tab)} />
+					<TabBar activeTab={this.props.activeTab} onChange={tab => this.props.changeActiveTab(tab)} />
 					<AppCatalog activeTab={this.props.activeTab} />
 					<LaunchButton />
 				</div>
