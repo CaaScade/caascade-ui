@@ -6,7 +6,9 @@ class DatabasesTab extends Component {
 	render() {
 		return(
 			<div className="app-catalog">
-        <AppCard name='Databases' logoSrc='resources/postgres.png' />
+        <AppCard name='Cassandra' logoSrc='resources/Cassandra_logo.png' />
+        <AppCard name='CouchDB' logoSrc='resources/CouchDB.png' />
+        <AppCard name='HBase' logoSrc='resources/big_h_logo.svg' />
 			</div>
 		);
 	}
