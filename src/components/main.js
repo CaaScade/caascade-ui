@@ -12,7 +12,7 @@ class Main extends Component {
 				<div className="main-section">
 					<CreateAppButton />
 					<ManageExistingAppButton />
-				    <CreateAppButtonLabel />
+				  <CreateAppButtonLabel />
 					<ManageExistingAppButtonLabel />
 					<TabbedSection />
 				</div>

@@ -29,7 +29,7 @@
 
 .caascade-navbar > ul {
 	list-style-type: none;
-	margin: 0; 
+	margin: 0;
 	padding: 0;
 }
 
@@ -40,7 +40,7 @@
 .navbar-item {
 	margin: 0;
 	overflow: auto;
-	padding: 16px 24px; 
+	padding: 16px 24px;
 	font-weight: bold;
 	color: white;
 	background-color: #41416d;
@@ -108,7 +108,7 @@
 
 .tab-bar > ul {
 	list-style-type: none;
-	margin: 0; 
+	margin: 0;
 	padding: 0;
 	margin-top: 12px;
 	overflow: auto;
@@ -116,18 +116,19 @@
 
 .tab-bar li {
 	float: left;
-	padding: 8px 24px; 
+	padding: 8px 24px;
 	font-weight: bold;
 	margin-left: 1px;
 	margin-right: 1px;
 	color: black;
 	background-color: #dbdbdb;
-    text-align: center;
+  text-align: center;
 	text-decoration: none;
 	border-right: 1px solid;
 	border-color: white;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
+  cursor: pointer;
 }
 
 .tab-bar li:hover {
@@ -181,7 +182,7 @@
 	height: 240px;
 	margin-left: 10px;
 	margin-right: 5px;
-	margin-top: 
+	margin-top:
 }
 
 .launch-button {
@@ -204,7 +205,7 @@
 
 .footer {
 	overflow: auto;
-	height: 50px; 
+	height: 50px;
 	background-color: #949aa3;
 	margin-top: 10px;
 	margin-bottom: 10px;
