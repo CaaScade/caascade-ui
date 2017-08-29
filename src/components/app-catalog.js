@@ -1,9 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import PosgresAppCard from './posgres-app-card';
-import MySQLAppCard from './mysql-app-card';
-import MongoDBAppCard from './mongodb-app-card';
-
+import AppCard from './app-card';
 
 class AppCatalog extends Component {
   static propTypes = {
@@ -12,11 +9,11 @@ class AppCatalog extends Component {
 
 	render() {
 		return(
-				<div className="app-catalog">
-						<PosgresAppCard />
-						<MySQLAppCard />
-						<MongoDBAppCard />
-				</div>
+			<div className="app-catalog">
+        <AppCard name='PostgreSQL' logoSrc='resources/postgres.png' />
+        <AppCard name='MySQL' logoSrc='resources/mysql.png' />
+        <AppCard name='MongoDB' logoSrc='resources/mongodb.png' />
+			</div>
 		);
 	}
 }
