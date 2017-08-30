@@ -12,15 +12,15 @@ class TabbedSection extends Component {
     activeTab: PropTypes.string.isRequired
   }
 
-	render() {
-		return(
-				<div className="tabbed-section">
-					<TabBar activeTab={this.props.activeTab} onChange={tab => this.props.changeActiveTab(tab)} />
-					<AppCatalog activeTab={this.props.activeTab} />
-					<LaunchButton />
-				</div>
-		);
-	}
+  render() {
+    return(
+        <div className="tabbed-section">
+          <TabBar activeTab={this.props.activeTab} onChange={tab => this.props.changeActiveTab(tab)} />
+          <AppCatalog activeTab={this.props.activeTab} />
+          <LaunchButton />
+        </div>
+    );
+  }
 }
 
 const mapStateToProps = ({state}) => {

@@ -13,7 +13,7 @@ class AppCatalog extends Component {
     activeTab: PropTypes.string.isRequired
   }
 
-	render() {
+  render() {
     switch(this.props.activeTab) {
       case ('load-balancers'):
         return <LoadBalancersTab />;
@@ -26,7 +26,7 @@ class AppCatalog extends Component {
       default:
         return <OthersTab />
     }
-	}
+  }
 }
 
 export default AppCatalog;

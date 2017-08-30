@@ -9,16 +9,16 @@ import Logo from './logo';
 class NavBar extends Component {
   render() {
     return (
-	  <div className="caascade-navbar">
-	    <ul>
-			<li> <Logo /> </li>
-	    	<li> <a className="navbar-item" href="#"> <MdSettings /> Settings </a> </li>
-			<li> <a className="navbar-item" href="#"> <MdPeople /> Profiles </a> </li>
-		    <li> <a className="navbar-item" href="#"> <MdLayers /> Applications </a> </li>
-			<li> <a className="navbar-item" href="#"> <MdLocalGroceryStore /> App Store </a> </li>
-		</ul>
-	  </div>
-	);
+    <div className="caascade-navbar">
+      <ul>
+      <li> <Logo /> </li>
+        <li> <a className="navbar-item" href="#"> <MdSettings /> Settings </a> </li>
+      <li> <a className="navbar-item" href="#"> <MdPeople /> Profiles </a> </li>
+        <li> <a className="navbar-item" href="#"> <MdLayers /> Applications </a> </li>
+      <li> <a className="navbar-item" href="#"> <MdLocalGroceryStore /> App Store </a> </li>
+    </ul>
+    </div>
+  );
   }
 }
 

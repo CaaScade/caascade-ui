@@ -6,14 +6,14 @@ class AppCard extends Component {
     name: PropTypes.string.isRequired
   }
 
-	render() {
-		return(
-			<div className="app-card">
-				<img src={this.props.logoSrc} alt={this.props.name} />
-				<label className="app-card-desc"> {this.props.name} </label>
-			</div>
-		);
-	}
+  render() {
+    return(
+      <div className="app-card">
+        <img src={this.props.logoSrc} alt={this.props.name} />
+        <label className="app-card-desc"> {this.props.name} </label>
+      </div>
+    );
+  }
 }
 
 export default AppCard;
