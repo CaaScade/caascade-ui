@@ -7,13 +7,13 @@ import Footer from './footer';
 export default class App extends Component {
   render() {
     return (
-	  <div className="main">
-	    <div className="caascade-header">
+    <div className="main">
+      <div className="caascade-header">
           <NavBar />
-	    </div>
-		<Main />
-		<Footer />
-	  </div>
+      </div>
+    <Main />
+    <Footer />
+    </div>
     );
   }
 }

@@ -7,17 +7,17 @@ import ManageExistingAppButtonLabel from './manage-existing-app-button-label';
 import TabbedSection from './tabbed-section';
 
 class Main extends Component {
-	render() {
-		return (
-				<div className="main-section">
-					<CreateAppButton />
-					<ManageExistingAppButton />
-				    <CreateAppButtonLabel />
-					<ManageExistingAppButtonLabel />
-					<TabbedSection />
-				</div>
-		);
-	}
+  render() {
+    return (
+      <div className="main-section">
+        <CreateAppButton />
+        <ManageExistingAppButton />
+        <CreateAppButtonLabel />
+        <ManageExistingAppButtonLabel />
+        <TabbedSection />
+      </div>
+    );
+  }
 }
 
 export default Main;
