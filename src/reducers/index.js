@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
-  selectedApp: ''
+  selectedApp: '',
+  isShowingAppModal: false
 };
 
 const rootReducer = combineReducers({
@@ -18,6 +19,18 @@ const rootReducer = combineReducers({
       return {
         ...state,
         selectedApp: action.selectedApp
+      };
+
+    case 'HIDE_APP_MODAL':
+      return {
+        ...state,
+        isShowingAppModal: false
+      };
+
+    case 'SHOW_APP_MODAL':
+      return {
+        ...state,
+        isShowingAppModal: Boolean(state.selectedApp)
       };
     }
 

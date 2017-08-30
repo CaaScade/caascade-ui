@@ -1,3 +1,9 @@
+.noscroll {
+  height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+
 .logo {
   margin: 0;
   padding: 0;
@@ -233,4 +239,54 @@
   font-size: 15px;
   margin-top: 15px;
   margin-left: 10px;
+}
+
+.full-page-modal {
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.full-page-modal>.content {
+  background: #f3f3f3;
+  padding: 20px;
+}
+
+.full-page-modal>.content>.control-buttons {
+  text-align: right;
+  margin: 10px;
+}
+
+.full-page-modal>.content>.control-buttons>.cancel {
+  border-radius: 3px;
+  background-color: #e2e2e2;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 48px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  margin-right: 10px;
+}
+
+.full-page-modal>.content>.control-buttons>.success {
+  border-radius: 3px;
+  background-color: #41416d;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 48px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
