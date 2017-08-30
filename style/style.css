@@ -254,7 +254,7 @@
 
 .full-page-modal>.content {
   background: #f3f3f3;
-  padding: 20px;
+  padding: 40px;
 }
 
 .full-page-modal>.content>.control-buttons {
@@ -274,7 +274,7 @@
   padding: 8px 48px;
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-  margin-right: 10px;
+  margin-right: 30px;
 }
 
 .full-page-modal>.content>.control-buttons>.success {
@@ -289,4 +289,37 @@
   padding: 8px 48px;
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.app-config {
+  background: #fff;
+  margin: 40px 0;
+}
+
+.app-config__info {
+  padding: 30px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.app-info__images {
+  float: left;
+  width: 49%;
+  position: relative;
+}
+.app-info__logo {
+  margin-left: 5%;
+  width: 30%;
+}
+.app-info__chart {
+  margin: 0;
+  width: 50%;
+  float: right;
+  margin-right: 5%;
+}
+
+.app-info__desc {
+  float: right;
+  padding-top: 3%;
+  width: 50%;
 }

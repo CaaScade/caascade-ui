@@ -6,7 +6,7 @@ import { hideAppModal } from '../actions';
 
 class FullPageModal extends Component {
   static propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
     isShown: PropTypes.bool.isRequired,
     onSuccess: PropTypes.func.isRequired
   }

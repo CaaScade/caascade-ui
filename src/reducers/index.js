@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
-  selectedApp: '',
-  isShowingAppModal: false
+  selectedApp: 'postgresql',
+  isShowingAppModal: true
 };
 
 const rootReducer = combineReducers({

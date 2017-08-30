@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import AppCard from '../app-card';
-import FullPageModal from '../full-page-modal';
+import DatabaseAppModal from '../database-app-modal';
 
 class DatabasesTab extends Component {
   static propTypes = {
@@ -12,11 +12,7 @@ class DatabasesTab extends Component {
   render() {
     return(
       <div className="app-catalog">
-        <FullPageModal
-          onSuccess={() => console.warn('INSTALLING POSTGRES')}
-        >
-          <h1>PostgreSQL</h1>
-        </FullPageModal>
+        <DatabaseAppModal onInstall={() => console.warn('INSTALLING POSTGRES')} />
 
         <AppCard
           id='postgresql'
