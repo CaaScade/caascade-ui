@@ -1,15 +1,23 @@
 import { combineReducers } from 'redux';
 
 const initialState = {
-  activeTab: 'load-balancers' // load-balancers, caches, message-queues, databases, others
+  activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
+  selectedApp: ''
 };
 
 const rootReducer = combineReducers({
   state: (state = initialState, action) => {
-    if (action.type === 'CHANGE_ACTIVE_TAB') {
+    switch (action.type) {
+    case 'CHANGE_ACTIVE_TAB':
       return {
         ...state,
         activeTab: action.activeTab
+      };
+
+    case 'CHANGE_SELECTED_APP':
+      return {
+        ...state,
+        selectedApp: action.selectedApp
       };
     }
 

@@ -10,7 +10,9 @@ import {
 
 class AppCatalog extends Component {
   static propTypes = {
-    activeTab: PropTypes.string.isRequired
+    activeTab: PropTypes.string.isRequired,
+    onSelectApp: PropTypes.func.isRequired,
+    selectedApp: PropTypes.string.isRequired
   }
 
   render() {
@@ -22,7 +24,12 @@ class AppCatalog extends Component {
       case ('message-queues'):
         return <MessageQueuesTab />;
       case ('databases'):
-        return <DatabasesTab />;
+        return (
+          <DatabasesTab
+            onSelect={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        );
       default:
         return <OthersTab />
     }
