@@ -3,7 +3,10 @@ import { combineReducers } from 'redux';
 const initialState = {
   activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
   selectedApp: 'postgresql',
-  isShowingAppModal: true
+  isShowingAppModal: true,
+  selectedAppConfig: {
+    version: 'v9.5.1'
+  }
 };
 
 const rootReducer = combineReducers({
@@ -31,6 +34,12 @@ const rootReducer = combineReducers({
       return {
         ...state,
         isShowingAppModal: Boolean(state.selectedApp)
+      };
+
+    case 'SET_SELECTED_APP_CONFIG':
+      return {
+        ...state,
+        selectedAppConfig: action.config
       };
     }
 

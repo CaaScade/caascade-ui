@@ -1,18 +1,24 @@
 import React, { Component, PropTypes } from 'react';
 
 import AppCard from '../app-card';
-import DatabaseAppModal from '../database-app-modal';
+import PostgresqlAppModal from '../postgresql-app-modal';
 
 class DatabasesTab extends Component {
   static propTypes = {
     onSelect: PropTypes.func.isRequired,
-    selectedApp: PropTypes.string.isRequired
+    selectedApp: PropTypes.string.isRequired,
+    selectedAppConfig: PropTypes.any,
+    onSetSelectedAppConfig: PropTypes.func.isRequired
   }
 
   render() {
     return(
       <div className="app-catalog">
-        <DatabaseAppModal onInstall={() => console.warn('INSTALLING POSTGRES')} />
+        <PostgresqlAppModal
+          onInstall={() => console.warn('INSTALLING POSTGRES')}
+          config={this.props.selectedAppConfig}
+          onSetConfig={this.props.onSetSelectedAppConfig}
+        />
 
         <AppCard
           id='postgresql'

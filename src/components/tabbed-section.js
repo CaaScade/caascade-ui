@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import {
   changeActiveTab,
   changeSelectedApp,
-  showAppModal
+  showAppModal,
+  setSelectedAppConfig
 } from '../actions';
 
 import TabBar from './tab-bar';
@@ -15,17 +16,25 @@ class TabbedSection extends Component {
     activeTab: PropTypes.string.isRequired,
     onSelectApp: PropTypes.func.isRequired,
     selectedApp: PropTypes.string.isRequired,
-    onShowAppModal: PropTypes.func.isRequired
+    onShowAppModal: PropTypes.func.isRequired,
+    selectedAppConfig: PropTypes.object,
+    onSetSelectedAppConfig: PropTypes.func.isRequired
   }
 
   render() {
     return(
-        <div className="tabbed-section">
-          <TabBar activeTab={this.props.activeTab} onChange={tab => this.props.changeActiveTab(tab)} />
-          <AppCatalog activeTab={this.props.activeTab} onSelectApp={this.props.onSelectApp} selectedApp={this.props.selectedApp} />
+      <div className="tabbed-section">
+        <TabBar activeTab={this.props.activeTab} onChange={tab => this.props.changeActiveTab(tab)} />
+        <AppCatalog
+          activeTab={this.props.activeTab}
+          onSelectApp={this.props.onSelectApp}
+          selectedApp={this.props.selectedApp}
+          selectedAppConfig={this.props.selectedAppConfig}
+          onSetSelectedAppConfig={this.props.onSetSelectedAppConfig}
+        />
 
-          <button className="launch-button" onClick={this.props.onShowAppModal}> Launch </button>
-        </div>
+        <button className="launch-button" onClick={this.props.onShowAppModal}> Launch </button>
+      </div>
     );
   }
 }
@@ -33,7 +42,8 @@ class TabbedSection extends Component {
 const mapStateToProps = ({state}) => {
   return {
     activeTab: state.activeTab,
-    selectedApp: state.selectedApp
+    selectedApp: state.selectedApp,
+    selectedAppConfig: state.selectedAppConfig
   };
 };
 
@@ -41,7 +51,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeActiveTab: (tab) => dispatch(changeActiveTab(tab)),
     onSelectApp: (app) => dispatch(changeSelectedApp(app)),
-    onShowAppModal: () => dispatch(showAppModal())
+    onShowAppModal: () => dispatch(showAppModal()),
+    onSetSelectedAppConfig: (config) => dispatch(setSelectedAppConfig(config))
   };
 };
 

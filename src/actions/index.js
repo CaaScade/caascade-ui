@@ -15,3 +15,8 @@ export const hideAppModal = () => ({
 export const showAppModal = () => ({
   type: 'SHOW_APP_MODAL'
 });
+
+export const setSelectedAppConfig = (config) => ({
+  type: 'SET_SELECTED_APP_CONFIG',
+  config
+});
