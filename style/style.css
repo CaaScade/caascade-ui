@@ -171,10 +171,9 @@
 
 .app-card-desc {
 	font-weight: bold;
-	margin: auto;
-	margin-left: 30%;
 	margin-bottom: 5%;
-	text-align: left;
+	text-align: center;
+  width: 100%;
 }
 
 .app-card:hover {
