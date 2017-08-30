@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
-  selectedApp: 'postgresql',
+  selectedApp: '',
   isShowingAppModal: true,
   selectedAppConfig: {
     version: 'v9.5.1'
