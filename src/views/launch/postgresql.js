@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { updateLaunchPostgresqlForm } from '../../actions';
+import {
+  updateLaunchPostgresqlForm,
+  updateLaunchPostgresqlVersion
+} from '../../actions';
 
 class LaunchPostgresql extends Component {
   static propTypes = {
@@ -34,7 +37,7 @@ class LaunchPostgresql extends Component {
         <li
           key={version}
           className={"app-config__version-tab" + (this.props.version === version ? ' active' : '')}
-          onClick={() => this.props.onSetConfig({version})}
+          onClick={() => this.props.onChangeVersion(version)}
         >{version}</li>
       );
     })
@@ -148,6 +151,7 @@ const mapStateToProps = ({launch}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onChangeVersion: (version) => dispatch(updateLaunchPostgresqlVersion(version)),
     updateForm: (form) => dispatch(updateLaunchPostgresqlForm(form))
   }
 };

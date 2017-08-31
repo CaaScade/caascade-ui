@@ -41,6 +41,14 @@ const rootReducer = combineReducers({
   },
   launch: (state=initialState.launch, action) => {
     switch (action.type) {
+    case 'UPDATE_LAUNCH_POSTGRESQL_VERSION':
+      return {
+        ...state,
+        postgresql: {
+          ...state.postgresql,
+          version: action.version
+        }
+      };
     case 'UPDATE_LAUNCH_POSTGRESQL_FORM':
       return {
         ...state,

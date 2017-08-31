@@ -8,6 +8,11 @@ export const changeSelectedApp = (selectedApp) => ({
   selectedApp
 });
 
+export const updateLaunchPostgresqlVersion = (version) => ({
+  type: 'UPDATE_LAUNCH_POSTGRESQL_VERSION',
+  version
+});
+
 export const updateLaunchPostgresqlForm = (form) => ({
   type: 'UPDATE_LAUNCH_POSTGRESQL_FORM',
   form
