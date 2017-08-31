@@ -12,9 +12,7 @@ class AppCatalog extends Component {
   static propTypes = {
     activeTab: PropTypes.string.isRequired,
     onSelectApp: PropTypes.func.isRequired,
-    selectedApp: PropTypes.string.isRequired,
-    selectedAppConfig: PropTypes.any,
-    onSetSelectedAppConfig: PropTypes.func.isRequired
+    selectedApp: PropTypes.string.isRequired
   }
 
   render() {
@@ -28,10 +26,8 @@ class AppCatalog extends Component {
       case ('databases'):
         return (
           <DatabasesTab
-            onSelect={this.props.onSelectApp}
+            onSelectApp={this.props.onSelectApp}
             selectedApp={this.props.selectedApp}
-            selectedAppConfig={this.props.selectedAppConfig}
-            onSetSelectedAppConfig={this.props.onSetSelectedAppConfig}
           />
         );
       default:

@@ -1,16 +1,20 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 const initialState = {
-  activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
-  selectedApp: '',
-  isShowingAppModal: false,
-  selectedAppConfig: {
-    version: 'v9.5.1'
+  home: {
+    activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
+    selectedApp: ''
+  },
+  launch: {
+    postgresql: {
+      version: 'v9.5.1'
+    }
   }
 };
 
 const rootReducer = combineReducers({
-  state: (state = initialState, action) => {
+  home: (state = initialState.home, action) => {
     switch (action.type) {
     case 'CHANGE_ACTIVE_TAB':
       return {
@@ -23,28 +27,14 @@ const rootReducer = combineReducers({
         ...state,
         selectedApp: action.selectedApp
       };
-
-    case 'HIDE_APP_MODAL':
-      return {
-        ...state,
-        isShowingAppModal: false
-      };
-
-    case 'SHOW_APP_MODAL':
-      return {
-        ...state,
-        isShowingAppModal: Boolean(state.selectedApp)
-      };
-
-    case 'SET_SELECTED_APP_CONFIG':
-      return {
-        ...state,
-        selectedAppConfig: action.config
-      };
     }
 
     return state;
-  }
+  },
+  launch: (state=initialState.launch, action) => {
+    return state;
+  },
+  routing: routerReducer
 });
 
 export default rootReducer;

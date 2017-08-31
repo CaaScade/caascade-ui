@@ -5,7 +5,8 @@ class AppCard extends Component {
     logoSrc: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     id: PropTypes.string,
-    isSelected: PropTypes.bool
+    isSelected: PropTypes.bool,
+    onSelect: PropTypes.func
   }
 
   handleSelect = () => {

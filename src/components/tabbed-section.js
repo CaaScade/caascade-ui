@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
 import {
   changeActiveTab,
-  changeSelectedApp,
-  showAppModal,
-  setSelectedAppConfig
+  changeSelectedApp
 } from '../actions';
 
 import TabBar from './tab-bar';
@@ -15,10 +14,7 @@ class TabbedSection extends Component {
   static propTypes = {
     activeTab: PropTypes.string.isRequired,
     onSelectApp: PropTypes.func.isRequired,
-    selectedApp: PropTypes.string.isRequired,
-    onShowAppModal: PropTypes.func.isRequired,
-    selectedAppConfig: PropTypes.object,
-    onSetSelectedAppConfig: PropTypes.func.isRequired
+    selectedApp: PropTypes.string.isRequired
   }
 
   render() {
@@ -30,29 +26,28 @@ class TabbedSection extends Component {
           onSelectApp={this.props.onSelectApp}
           selectedApp={this.props.selectedApp}
           selectedAppConfig={this.props.selectedAppConfig}
-          onSetSelectedAppConfig={this.props.onSetSelectedAppConfig}
         />
 
-        <button className="launch-button" onClick={this.props.onShowAppModal}> Launch </button>
+        <a
+          className={"launch-button" + (this.props.selectedApp ? '' : ' disabled')}
+          href={'/launch-' + this.props.selectedApp}
+        > Launch </a>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({state}) => {
+const mapStateToProps = ({home}) => {
   return {
-    activeTab: state.activeTab,
-    selectedApp: state.selectedApp,
-    selectedAppConfig: state.selectedAppConfig
+    activeTab: home.activeTab,
+    selectedApp: home.selectedApp
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeActiveTab: (tab) => dispatch(changeActiveTab(tab)),
-    onSelectApp: (app) => dispatch(changeSelectedApp(app)),
-    onShowAppModal: () => dispatch(showAppModal()),
-    onSetSelectedAppConfig: (config) => dispatch(setSelectedAppConfig(config))
+    onSelectApp: (app) => dispatch(changeSelectedApp(app))
   };
 };
 

@@ -21,6 +21,10 @@
   opacity: 1;
 }
 
+.caascade-navbar > ul > li > .logo-link {
+  float: none;
+}
+
 .caascade-header {
   margin: 0;
   padding: 0;
@@ -223,6 +227,16 @@
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
+.launch-button:hover {
+  text-decoration: none;
+  color: white;
+}
+.launch-button.disabled {
+  color: #c4c4c4;
+  pointer-events: none;
+  cursor: default;
+  background: #9090aa;
+}
 
 .footer {
   overflow: auto;
@@ -294,6 +308,10 @@
 .app-config {
   background: #fff;
   margin: 40px 0;
+}
+
+.app-config__header {
+  padding: 30px;
 }
 
 .app-config__info {
