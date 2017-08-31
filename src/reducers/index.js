@@ -8,7 +8,15 @@ const initialState = {
   },
   launch: {
     postgresql: {
-      version: 'v9.5.1'
+      version: 'v9.5.1',
+      configForm: {
+        mastersCount: 1,
+        masterAvailabilityZone: '',
+        synchronousReplication: false,
+        slavesCount: 2,
+        slaveAvailabilityZone: [],
+        automaticBackups: true
+      }
     }
   }
 };
@@ -32,6 +40,17 @@ const rootReducer = combineReducers({
     return state;
   },
   launch: (state=initialState.launch, action) => {
+    switch (action.type) {
+    case 'UPDATE_LAUNCH_POSTGRESQL_FORM':
+      return {
+        ...state,
+        postgresql: {
+          ...state.postgresql,
+          configForm: action.form
+        }
+      };
+    }
+
     return state;
   },
   routing: routerReducer

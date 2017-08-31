@@ -430,6 +430,7 @@
   width: 30%;
   float: left;
   border: 1px solid;
+  padding: 0 5px;
 }
 select.form-input {
   padding: 5px;

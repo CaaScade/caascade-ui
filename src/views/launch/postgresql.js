@@ -1,12 +1,33 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import { updateLaunchPostgresqlForm } from '../../actions';
+
 class LaunchPostgresql extends Component {
   static propTypes = {
-    version: PropTypes.string.isRequired
+    version: PropTypes.string.isRequired,
+    form: PropTypes.shape({
+      mastersCount: PropTypes.number,
+      masterAvailabilityZone: PropTypes.string,
+      synchronousReplication: PropTypes.bool,
+      slavesCount: PropTypes.number,
+      slaveAvailabilityZone: PropTypes.arrayOf(PropTypes.string),
+      automaticBackups: PropTypes.bool
+    }).isRequired
+  }
+
+  updateFormValue = ({name, value}) => {
+    const newForm = {
+      ...this.props.form,
+      [name]: value
+    };
+
+    this.props.updateForm(newForm);
   }
 
   render() {
+    const { form } = this.props;
+
     const versionsJsx = ['v9.5.1', 'v9.6.1', 'v9.6.2', 'v9.7'].map((version) => {
       return (
         <li
@@ -42,10 +63,15 @@ class LaunchPostgresql extends Component {
             <h2 className="app-config-form__heading">Configure your PostgreSQL installation</h2>
 
             <div className="app-config-form__form">
-              <form className="app-config__master-form">
+              <form className="app-config__master-form" ref={(form) => { this.masterForm = form; }}>
                 <div className="form-row">
                   <label className="form-label">Number of Masters</label>
-                  <input className="form-input number-input" type="number" />
+                  <input
+                    className="form-input number-input"
+                    type="number" value={form.mastersCount}
+                    name='mastersCount'
+                    onChange={(e) => this.updateFormValue({name: e.target.name, value: parseInt(e.target.value, 10)})}
+                  />
                 </div>
 
                 <div className="form-row">
@@ -57,14 +83,26 @@ class LaunchPostgresql extends Component {
 
                 <div className="form-row">
                   <label className="form-label">Synchronous Replication</label>
-                  <input className="form-input" type="checkbox" />
+                  <input
+                    className="form-input"
+                    type="checkbox"
+                    checked={form.synchronousReplication}
+                    name="synchronousReplication"
+                    onChange={(e) => this.updateFormValue({name: e.target.name, value: !form.synchronousReplication})}
+                  />
                 </div>
               </form>
 
               <form className="app-config__slave-form">
                 <div className="form-row">
                   <label className="form-label">Number of Slaves</label>
-                  <input className="form-input number-input" type="number" />
+                  <input
+                    className="form-input number-input"
+                    type="number"
+                    value={form.slavesCount}
+                    name='slavesCount'
+                    onChange={(e) => this.updateFormValue({name: e.target.name, value: parseInt(e.target.value, 10)})}
+                  />
                 </div>
 
                 <div className="form-row">
@@ -77,7 +115,13 @@ class LaunchPostgresql extends Component {
 
                 <div className="form-row">
                   <label className="form-label">Automatic Backups</label>
-                  <input className="form-input" type="checkbox" />
+                  <input
+                    className="form-input"
+                    type="checkbox"
+                    checked={form.automaticBackups}
+                    name='automaticBackups'
+                    onChange={(e) => this.updateFormValue({name: e.target.name, value: !form.automaticBackups})}
+                  />
                 </div>
               </form>
             </div>
@@ -90,8 +134,15 @@ class LaunchPostgresql extends Component {
 
 const mapStateToProps = ({launch}) => {
   return {
-    version: launch.postgresql.version
+    version: launch.postgresql.version,
+    form: launch.postgresql.configForm
   };
 };
 
-export default connect(mapStateToProps)(LaunchPostgresql);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateForm: (form) => dispatch(updateLaunchPostgresqlForm(form))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LaunchPostgresql);
