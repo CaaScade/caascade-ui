@@ -271,12 +271,12 @@
   padding: 40px;
 }
 
-.full-page-modal>.content>.control-buttons {
+.control-buttons {
   text-align: right;
-  margin: 10px;
+  padding: 20px 40px;
 }
 
-.full-page-modal>.content>.control-buttons>.cancel {
+.control-buttons>.cancel {
   border-radius: 3px;
   background-color: #e2e2e2;
   border: none;
@@ -291,7 +291,7 @@
   margin-right: 30px;
 }
 
-.full-page-modal>.content>.control-buttons>.success {
+.control-buttons>.success {
   border-radius: 3px;
   background-color: #41416d;
   border: none;

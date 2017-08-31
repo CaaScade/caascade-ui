@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { updateLaunchPostgresqlForm } from '../../actions';
 
@@ -127,6 +128,12 @@ class LaunchPostgresql extends Component {
             </div>
           </div>
         </div>
+
+        <div className="control-buttons">
+          <Link className="cancel" to='/'>Cancel</Link>
+          <button className="success">Install</button>
+        </div>
+
       </div>
     );
   }
