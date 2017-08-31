@@ -18,11 +18,29 @@ class AppCatalog extends Component {
   render() {
     switch(this.props.activeTab) {
       case ('load-balancers'):
-        return <LoadBalancersTab />;
+        return (
+          <LoadBalancersTab
+            onSelectApp={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        );
+
       case ('caches'):
-        return <CachesTab />;
+        return (
+          <CachesTab
+            onSelectApp={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        );
+
       case ('message-queues'):
-        return <MessageQueuesTab />;
+        return (
+          <MessageQueuesTab
+            onSelectApp={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        )
+
       case ('databases'):
         return (
           <DatabasesTab
