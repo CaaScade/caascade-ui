@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
+import { Link } from 'react-router';
 
 import {
   changeActiveTab,
@@ -28,10 +29,10 @@ class TabbedSection extends Component {
           selectedAppConfig={this.props.selectedAppConfig}
         />
 
-        <a
+        <Link
           className={"launch-button" + (this.props.selectedApp ? '' : ' disabled')}
-          href={'/launch-' + this.props.selectedApp}
-        > Launch </a>
+          to={'/launch-' + this.props.selectedApp}
+        > Launch </Link>
       </div>
     );
   }
