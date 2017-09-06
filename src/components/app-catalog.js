@@ -12,26 +12,40 @@ class AppCatalog extends Component {
   static propTypes = {
     activeTab: PropTypes.string.isRequired,
     onSelectApp: PropTypes.func.isRequired,
-    selectedApp: PropTypes.string.isRequired,
-    selectedAppConfig: PropTypes.any,
-    onSetSelectedAppConfig: PropTypes.func.isRequired
+    selectedApp: PropTypes.string.isRequired
   }
 
   render() {
     switch(this.props.activeTab) {
       case ('load-balancers'):
-        return <LoadBalancersTab />;
+        return (
+          <LoadBalancersTab
+            onSelectApp={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        );
+
       case ('caches'):
-        return <CachesTab />;
+        return (
+          <CachesTab
+            onSelectApp={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        );
+
       case ('message-queues'):
-        return <MessageQueuesTab />;
+        return (
+          <MessageQueuesTab
+            onSelectApp={this.props.onSelectApp}
+            selectedApp={this.props.selectedApp}
+          />
+        )
+
       case ('databases'):
         return (
           <DatabasesTab
-            onSelect={this.props.onSelectApp}
+            onSelectApp={this.props.onSelectApp}
             selectedApp={this.props.selectedApp}
-            selectedAppConfig={this.props.selectedAppConfig}
-            onSetSelectedAppConfig={this.props.onSetSelectedAppConfig}
           />
         );
       default:

@@ -8,15 +8,12 @@ export const changeSelectedApp = (selectedApp) => ({
   selectedApp
 });
 
-export const hideAppModal = () => ({
-  type: 'HIDE_APP_MODAL'
+export const updateLaunchPostgresqlVersion = (version) => ({
+  type: 'UPDATE_LAUNCH_POSTGRESQL_VERSION',
+  version
 });
 
-export const showAppModal = () => ({
-  type: 'SHOW_APP_MODAL'
-});
-
-export const setSelectedAppConfig = (config) => ({
-  type: 'SET_SELECTED_APP_CONFIG',
-  config
+export const updateLaunchPostgresqlForm = (form) => ({
+  type: 'UPDATE_LAUNCH_POSTGRESQL_FORM',
+  form
 });

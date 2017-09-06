@@ -1,16 +1,28 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 const initialState = {
-  activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
-  selectedApp: '',
-  isShowingAppModal: false,
-  selectedAppConfig: {
-    version: 'v9.5.1'
+  home: {
+    activeTab: 'databases', // load-balancers, caches, message-queues, databases, others
+    selectedApp: ''
+  },
+  launch: {
+    postgresql: {
+      version: 'v9.5.1',
+      configForm: {
+        mastersCount: 1,
+        masterAvailabilityZone: '',
+        synchronousReplication: false,
+        slavesCount: 2,
+        slaveAvailabilityZone: [],
+        automaticBackups: true
+      }
+    }
   }
 };
 
 const rootReducer = combineReducers({
-  state: (state = initialState, action) => {
+  home: (state = initialState.home, action) => {
     switch (action.type) {
     case 'CHANGE_ACTIVE_TAB':
       return {
@@ -23,28 +35,33 @@ const rootReducer = combineReducers({
         ...state,
         selectedApp: action.selectedApp
       };
+    }
 
-    case 'HIDE_APP_MODAL':
+    return state;
+  },
+  launch: (state=initialState.launch, action) => {
+    switch (action.type) {
+    case 'UPDATE_LAUNCH_POSTGRESQL_VERSION':
       return {
         ...state,
-        isShowingAppModal: false
+        postgresql: {
+          ...state.postgresql,
+          version: action.version
+        }
       };
-
-    case 'SHOW_APP_MODAL':
+    case 'UPDATE_LAUNCH_POSTGRESQL_FORM':
       return {
         ...state,
-        isShowingAppModal: Boolean(state.selectedApp)
-      };
-
-    case 'SET_SELECTED_APP_CONFIG':
-      return {
-        ...state,
-        selectedAppConfig: action.config
+        postgresql: {
+          ...state.postgresql,
+          configForm: action.form
+        }
       };
     }
 
     return state;
-  }
+  },
+  routing: routerReducer
 });
 
 export default rootReducer;

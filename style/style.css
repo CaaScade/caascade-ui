@@ -21,6 +21,10 @@
   opacity: 1;
 }
 
+.caascade-navbar > ul > li > .logo-link {
+  float: none;
+}
+
 .caascade-header {
   margin: 0;
   padding: 0;
@@ -223,6 +227,16 @@
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
+.launch-button:hover {
+  text-decoration: none;
+  color: white;
+}
+.launch-button.disabled {
+  color: #c4c4c4;
+  pointer-events: none;
+  cursor: default;
+  background: #9090aa;
+}
 
 .footer {
   overflow: auto;
@@ -257,12 +271,12 @@
   padding: 40px;
 }
 
-.full-page-modal>.content>.control-buttons {
+.control-buttons {
   text-align: right;
-  margin: 10px;
+  padding: 20px 40px;
 }
 
-.full-page-modal>.content>.control-buttons>.cancel {
+.control-buttons>.cancel {
   border-radius: 3px;
   background-color: #e2e2e2;
   border: none;
@@ -277,7 +291,7 @@
   margin-right: 30px;
 }
 
-.full-page-modal>.content>.control-buttons>.success {
+.control-buttons>.success {
   border-radius: 3px;
   background-color: #41416d;
   border: none;
@@ -294,6 +308,10 @@
 .app-config {
   background: #fff;
   margin: 40px 0;
+}
+
+.app-config__header {
+  padding: 30px;
 }
 
 .app-config__info {
@@ -412,6 +430,7 @@
   width: 30%;
   float: left;
   border: 1px solid;
+  padding: 0 5px;
 }
 select.form-input {
   padding: 5px;
