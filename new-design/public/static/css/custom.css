@@ -1,0 +1,13 @@
+[data-react-toolbox='link'] {
+     color: rgb(255, 255, 255) !important;
+}
+.topbar-right-link {
+  color: '#fff' !important;
+  text-decoration: none;
+}
+.hide{
+  display:none !important;
+}
+.show{
+  display:inline-block !important;
+}
